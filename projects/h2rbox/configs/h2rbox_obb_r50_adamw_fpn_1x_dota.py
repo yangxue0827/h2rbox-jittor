@@ -7,8 +7,8 @@ model = dict(
         type='Resnet50',
         frozen_stages=1,
         norm_eval=True,
-        return_stages=["layer1","layer2","layer3","layer4"],
-        pretrained= True),
+        return_stages=["layer1", "layer2", "layer3", "layer4"],
+        pretrained=True),
     neck=dict(
         type='FPN',
         in_channels=[256, 512, 1024, 2048],
@@ -25,8 +25,9 @@ model = dict(
         feat_channels=256,
         strides=[8, 16, 32, 64, 128],
         scale_theta=True,
-        norm_on_bbox = True,
+        norm_on_bbox=True,
         crop_size=(1024, 1024),
+        rect_classes=[9, 11],
         loss_cls=dict(
             type='FocalLoss',
             gamma=2.0,
@@ -41,14 +42,14 @@ model = dict(
             center_loss_cfg=dict(type='L1Loss', loss_weight=0.0),
             shape_loss_cfg=dict(type='IoULoss', loss_weight=1.0),
             angle_loss_cfg=dict(type='L1Loss', loss_weight=1.0)),
-        test_cfg = dict(
+        test_cfg=dict(
             centerness_factor=0.5,
             nms_pre=1000,
             min_bbox_size=0,
             score_thr=0.05,
             nms=dict(type='obb_nms', iou_thr=0.1),
             max_per_img=2000)
-        ))
+    ))
 # training and testing settings
 
 dataset = dict(
@@ -63,14 +64,14 @@ dataset = dict(
             ),
             dict(type='RotatedRandomFlip', prob=0.5),
             dict(
-                type = "Pad",
+                type="Pad",
                 size_divisor=32),
             dict(
-                type = "Normalize",
-                mean =  [123.675, 116.28, 103.53],
-                std = [58.395, 57.12, 57.375],
-                to_bgr=False,)
-            
+                type="Normalize",
+                mean=[123.675, 116.28, 103.53],
+                std=[58.395, 57.12, 57.375],
+                to_bgr=False, )
+
         ],
         batch_size=2,
         num_workers=2,
@@ -87,12 +88,12 @@ dataset = dict(
                 max_size=1024
             ),
             dict(
-                type = "Pad",
+                type="Pad",
                 size_divisor=32),
             dict(
-                type = "Normalize",
-                mean =  [123.675, 116.28, 103.53],
-                std = [58.395, 57.12, 57.375],
+                type="Normalize",
+                mean=[123.675, 116.28, 103.53],
+                std=[58.395, 57.12, 57.375],
                 to_bgr=False),
         ],
         batch_size=4,
@@ -109,13 +110,13 @@ dataset = dict(
                 max_size=1024
             ),
             dict(
-                type = "Pad",
+                type="Pad",
                 size_divisor=32),
             dict(
-                type = "Normalize",
-                mean =  [123.675, 116.28, 103.53],
-                std = [58.395, 57.12, 57.375],
-                to_bgr=False,),
+                type="Normalize",
+                mean=[123.675, 116.28, 103.53],
+                std=[58.395, 57.12, 57.375],
+                to_bgr=False, ),
         ],
         num_workers=4,
         batch_size=1,
@@ -127,7 +128,7 @@ optimizer = dict(
     lr=0.0001,
     betas=(0.9, 0.999),
     weight_decay=0.05
-    )
+)
 
 scheduler = dict(
     type='StepLR',
@@ -135,7 +136,6 @@ scheduler = dict(
     warmup_iters=500,
     warmup_ratio=1.0 / 3,
     milestones=[8, 11])
-
 
 logger = dict(
     type="RunLogger")
