@@ -14,9 +14,9 @@ Oriented object detection emerges in many applications from aerial images to aut
 
 DOTA1.0
 
-|         Backbone         |  mAP  | Angle | lr schd | MS  | Batch Size |                                                      Configs                                                      |                                     Download                                     |
-|:------------------------:|:-----:|:-----:|:-------:|:---:|:----------:|:-----------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------:|
-| ResNet50 (1024,1024,200) | 67.62 | le135 |   1x    |  -  |     2      |                 [h2rbox_obb_r50_adamw_fpn_1x_dota](./configs/h2rbox_obb_r50_adamw_fpn_1x_dota.py)                 | [model](), [Baidu Drive (pm0i)](https://pan.baidu.com/s/1nAgTTFhcAYWgeynjnZE8NQ) |
+|         Backbone         |  mAP  | Angle | lr schd | MS  | Batch Size |                                                      Configs                                                      |                                                                      Download                                                                       |
+|:------------------------:|:-----:|:-----:|:-------:|:---:|:----------:|:-----------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------:|
+| ResNet50 (1024,1024,200) | 67.62 | le135 |   1x    |  -  |     2      |                 [h2rbox_obb_r50_adamw_fpn_1x_dota](./configs/h2rbox_obb_r50_adamw_fpn_1x_dota.py)                 | [Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/9f19abe2f7074b569e77/?dl=1), [Baidu Drive (pm0i)](https://pan.baidu.com/s/1nAgTTFhcAYWgeynjnZE8NQ) |
 
 
 **Notes:**
