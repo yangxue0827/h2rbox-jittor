@@ -430,7 +430,7 @@ class H2RBoxHead(nn.Module):
                 pos_inds_aug.append(pos_ind_aug[xy_valid_aug] + offset)
                 pos_inds_aug_b.append(b[xy_valid_aug])
                 offset += num_imgs * h * w
-                pos_inds_aug_v = jt.array(pos_inds_aug_v, dtype=jt.bool)
+                pos_inds_aug_v = jt.array(pos_inds_aug_v, dtype=jt.bool)  # avoid bug in jittor 1.3.5.16
 
             # print('**'*20)
             # print(pos_inds_aug_v.dtype)
