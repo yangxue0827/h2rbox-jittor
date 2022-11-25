@@ -23,7 +23,9 @@ DOTA1.0
 
 - `MS` means multiple scale image split.
 - Inf time was tested on a single RTX3090.
-- [PyTorch Implementation for H2RBox](https://github.com/yangxue0827/h2rbox-mmrotate)
+- [Original PyTorch Implementation (Paper) for H2RBox](https://github.com/yangxue0827/h2rbox-mmrotate)
+- [MMRotate 1.x Implementation for H2RBox](https://github.com/open-mmlab/mmrotate)
+- [JDet Implementation for H2RBox](https://github.com/Jittor/JDet)
 
 ## Get Started
 
